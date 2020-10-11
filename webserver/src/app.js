@@ -4,15 +4,37 @@ const express = require('express')
 
 const app = express()
 const pubDir = path.join(__dirname, '../public')
+
+app.set('view engine', 'hbs')
 app.use(express.static(pubDir));
 
+app.get('', (req, res) => {
+    res.render('index', {
+        title: 'Weather App',
+        name: 'Thomas Reynolds'
+    })
+})
+
 app.get('/help', (req, res) => {
-    res.sendFile(pubDir+'/help.html')
+    let date = new Date()
+    let seconds = date.getSeconds()
+    let minutes = date.getMinutes()
+    let hours = date.getHours()
+    res.render('help', {
+        title: 'Help Page',
+        time: hours + ':' + minutes,
+        name: 'Thomas Reynolds'
+    })
 });
 
 
 app.get('/about', (req, res) => {
-    res.sendFile(pubDir + '/about.html') 	
+    res.render('about', {
+        title: 'About Me',
+        name: 'Thomas Reynolds',
+        age: 36,
+        myTitle: 'Developer'
+    })
 });
 
 app.get('/weather', (req, res) => {
