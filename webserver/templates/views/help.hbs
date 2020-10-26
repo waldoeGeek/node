@@ -7,9 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ title }}</h1>
-    <img class="profilePic" src="img/skunk.png" alt="">
-    <h3>{{ name }}</h3>
-    <h4>{{myTitle}} </h4>
+    {{!-- <h1>{{ title }}</h1> --}}
+    <h1> {{>header}} </h1>
+    <h3>Hello, {{ name }}</h3>
+    <h3>It is {{ time }}</h3>
+    {{>footer}}
 </body>
 </html>

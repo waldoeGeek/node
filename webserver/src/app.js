@@ -1,11 +1,21 @@
 const path = require('path')
 const express = require('express')
+const hbs = require('hbs')
 
 
 const app = express()
-const pubDir = path.join(__dirname, '../public')
 
+// Define Paths for express config
+const pubDir = path.join(__dirname, '../public')
+const viewsPath = path.join(__dirname, '../templates/views')
+const partialsPath = path.join(__dirname, '../templates/partials')
+
+// Setup handlebars and views elocation
 app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+hbs.registerPartials(partialsPath)
+
+// Setup static Directory to serve
 app.use(express.static(pubDir));
 
 app.get('', (req, res) => {
@@ -45,7 +55,7 @@ app.get('/weather', (req, res) => {
     })
 });
 
-
+// Start Server
 app.listen(3000, () => {
     console.log(`Server started on 3000`);
 });
