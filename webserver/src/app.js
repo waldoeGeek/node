@@ -20,7 +20,7 @@ app.use(express.static(pubDir));
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather App',
+        title: 'Weather',
         name: 'Thomas Reynolds'
     })
 })
@@ -47,11 +47,46 @@ app.get('/about', (req, res) => {
     })
 });
 
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        title: 'Error',
+        errorMessage: 'Help article not found!',
+        name: 'Thomas Reynolds'
+    })
+});
+
+
 app.get('/weather', (req, res) => {
+    if (!req.query.addr) {
+        return res.send({
+            error: 'No address provided!'
+        })
+    }
     res.send({
-        location: 'Ottawa',
+        location: req.query.addr,
         forecast: 'Currently snowy',
         temp: -10
+    })
+});
+
+app.get('/products', (req, res) => {
+    if (!req.query.search) {
+        return res.send({
+            error: 'You must provide a search term!'
+        })
+    } 
+    console.log(req.query);
+    res.send({
+        products: [ ]    
+    })
+});
+
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: 'Error',
+        name: 'Thomas Reynolds',
+        myTitle: 'Developer',
+        errorMessage: 'Error: Page Not Found!'
     })
 });
 

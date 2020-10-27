@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/weather.png" type="image/x-icon">
+    <title>{{title}}</title>
 </head>
 <body>
     {{!-- <h1>{{ title }}</h1> --}}
     <h1> {{>header}} </h1>
-    <h3>Hello, {{ name }}</h3>
-    <h3>It is {{ time }}</h3>
+    <div class="content">
+        <h3>Hello, {{ name }}</h3>
+        <h3>It is {{ time }}</h3>
+    </div>
     {{>footer}}
 </body>
 </html>

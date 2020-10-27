@@ -4,18 +4,29 @@ body {
     border: none;
     padding: 0;
     margin: 0 auto;
+    min-height: 100vh;
 }
 
 nav {
     text-align: center;
     color: #1b1b1b;
     background: #1957a7;
+    height: 3em;
+}
+
+nav h1 {
+    margin-right: 3.5em;
 }
 
 nav > ul {
     display: inline-block;
     text-decoration: none;
     font-size: medium;
+    position: relative;
+    /* top: -.5em; */
+    background: #424242;
+    padding: 1em;
+    box-shadow: 0 0 30px #616060;
 }
 
 nav > ul > li {
@@ -26,6 +37,7 @@ nav > ul > li {
 ul > li a {
     color: #c7c7c7;
     text-decoration: none;
+    font-size: 1.2rem;
 }
 
 h1 {
@@ -34,17 +46,36 @@ h1 {
 }
 
 .profilePic {
-    width: 20%;
+    width: 20em;
     padding-top: 2em;
 }
 
+/* Content area */
+.content {
+    width: 90%;
+    margin: 0 auto;
+    padding: 3em 0;
+}
+
+.container {
+    width: 90%;
+    padding-top: 1em;
+    margin: 0 auto;
+}
+
+
 /* Footer Area */
 footer {
-    background: #424242;
+    /* background: #424242; */
     padding: 2em 0;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     width: 100%;
+    height: 1em;
+}
+
+footer > hr {
+    width: 90%;
 }
 
 footer a {
@@ -53,8 +84,17 @@ footer a {
     text-decoration: none;
 }
 
-footer > .left {
+footer > .container > .left {
+    float: left;
     width: 40%;
     text-align: left;
     padding: 0 2em;
 }
+
+footer > .container > .right {
+    float: right;
+    /* width: 50%; */
+    text-align: right;
+    padding: 0 2em;
+}
+
