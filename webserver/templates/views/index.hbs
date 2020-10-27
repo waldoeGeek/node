@@ -9,9 +9,21 @@
     <title>{{title}}</title>
 </head>
 <body>
-    <h1>{{>header}}</h1>
-    {{!-- <h1>{{ title }}</h1> --}}
-    {{!-- <h3>Hello {{ name }}</h3> --}}
+    <h1>{{>header}}></h1>
+    <div class="content weather">
+        <p>Use This Page To Search Your Weather</p>
+   
+        <form action="" method="">
+            <input type="text" placeholder='location'>
+            <button type="submit">Search</button>
+        </form>
+        <div class="container forecast">
+            <p id="messageOne"></p>
+            <p id="messageTwo"></p>
+        </div>
+     </div>
+
+
 <script src="js/script.js"></script>
 {{>footer}}
 </body>
