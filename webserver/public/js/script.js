@@ -26,7 +26,7 @@ weatherForm.addEventListener('submit', (e) => {
     response.json().then(({location, forecast, error} = {}) => {
         if (error) {
             first.classList.add('error');
-            first.innerHTML = 'Error: ' + error;
+            first.innerHTML = '<b>Error: </b>' + error;
             second.innerHTML = ''
          } else {
             if (first.classList.contains('error')) {
