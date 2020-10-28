@@ -1,20 +1,8 @@
 console.log('Client js file loaded!');
-
-// fetch('http://localhost:3000/weather?addr=Boston').then((response) => {
-//     response.json().then(({location, forecast, error} = {}) => {
-//         if (error) {
-//             return console.log(error);
-//          } else {
-//             console.log('Location: ' + location + "\nForecast: " + forecast);
-//         }
-//     });    
-// });
-
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const first = document.querySelector('#messageOne')
 const second = document.querySelector('#messageTwo')
-// first.textContent = 'dsfsdlfsd'
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -22,7 +10,7 @@ weatherForm.addEventListener('submit', (e) => {
     first.innerHTML = '<span class="load">Loading.....</span>'
     second.textContent = ''
 
-    fetch('http://localhost:3000/weather?addr='+location).then((response) => {
+    fetch('/weather?addr='+location).then((response) => {
     response.json().then(({location, forecast, error} = {}) => {
         if (error) {
             first.classList.add('error');
